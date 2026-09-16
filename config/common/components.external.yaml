@@ -2,7 +2,7 @@ substitutions:
   # Defaults point at this fork because the component list below now includes
   # http_request, which is vendored here and does not exist upstream.
   ext_comp_repo_url: https://github.com/LosCV29/Satellite1-ESPHome
-  ext_comp_repo_ref: v0.2.0-carlos-2026.9.1
+  ext_comp_repo_ref: v0.2.0-carlos-2026.9.2
 
 external_components:
   - source:
