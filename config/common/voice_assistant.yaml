@@ -85,11 +85,18 @@ micro_wake_word:
                                 condition:
                                   switch.is_on: wake_sound
                                 then:
+                                  # Ready-cue timing: the tick FINISHES the instant the mic
+                                  # opens, so the end of the sound means "talk now". Total
+                                  # pre-capture time is unchanged at 800ms (610 + 190) -- the
+                                  # cue moved, no latency was added. The 800ms settle exists
+                                  # because the XMOS AEC re-converges after the cue; see
+                                  # the 2026-06-29 first-word-clipping fix.
+                                  - delay: 610ms
                                   - script.execute:
                                       id: play_sound
                                       priority: true
-                                      sound_file: "wake_word_triggered_sound"
-                                  - delay: 800ms
+                                      sound_file: "ready_tick_sound"
+                                  - delay: 190ms
                             - voice_assistant.start:
                                 wake_word: !lambda return wake_word;
 

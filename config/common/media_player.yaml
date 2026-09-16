@@ -5,6 +5,7 @@ substitutions:
   mute_switch_off_sound_file: https://fph-firmware-assets.s3.us-east-1.amazonaws.com/sounds/mute_switch_off.flac
   timer_finished_sound_file: https://fph-firmware-assets.s3.us-east-1.amazonaws.com/sounds/timer_finished.flac
   wake_word_triggered_sound_file: https://fph-firmware-assets.s3.us-east-1.amazonaws.com/sounds/wake_word_triggered.flac
+  ready_tick_sound_file: https://fph-firmware-assets.s3.us-east-1.amazonaws.com/sounds/wake_word_triggered.flac
   factory_reset_initiated_sound_file: https://fph-firmware-assets.s3.us-east-1.amazonaws.com/sounds/factory_reset_initiated.mp3
   factory_reset_cancelled_sound_file: https://fph-firmware-assets.s3.us-east-1.amazonaws.com/sounds/factory_reset_cancelled.mp3
   factory_reset_confirmed_sound_file: https://fph-firmware-assets.s3.us-east-1.amazonaws.com/sounds/factory_reset_confirmed.mp3
@@ -32,6 +33,8 @@ audio_file:
     file: ${timer_finished_sound_file}
   - id: wake_word_triggered_sound
     file: ${wake_word_triggered_sound_file}
+  - id: ready_tick_sound
+    file: ${ready_tick_sound_file}
   - id: center_button_press_sound
     file: ${center_button_press_sound_file}
   - id: center_button_double_press_sound
