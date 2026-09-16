@@ -1,6 +1,8 @@
 substitutions:
-  ext_comp_repo_url: https://github.com/FutureProofHomes/Satellite1-ESPHome
-  ext_comp_repo_ref: staging
+  # Defaults point at this fork because the component list below now includes
+  # http_request, which is vendored here and does not exist upstream.
+  ext_comp_repo_url: https://github.com/LosCV29/Satellite1-ESPHome
+  ext_comp_repo_ref: v0.2.0-carlos-2026.9.1
 
 external_components:
   - source:
@@ -16,11 +18,8 @@ external_components:
       - satellite1
       - satellite1_radar
       - tas2780
-
-  - source:
-      # https://github.com/esphome/esphome/pull/12429
-      type: git
-      url: https://github.com/esphome/esphome
-      ref: ff8ce89556748509d7ee8724e12d9d43d3c8c1e8
-    refresh: 300s
-    components: [http_request]
+      # Vendored from esphome PR #12429 (closed, never merged) because it is the
+      # only source of the http_request media_source platform, which upstream
+      # still does not provide. Our copy adds the esp-tls declaration that the
+      # PR branch lacks -- see esphome/components/http_request/__init__.py.
+      - http_request
